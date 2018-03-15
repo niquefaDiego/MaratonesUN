@@ -1,0 +1,3 @@
+Modify the main.js file to paint a different Segment Tree.
+  The array to build the Segment Tree is in line 3.
+  The operation of the Segment Tree is in line 5, as the function merge.

@@ -1,5 +1,11 @@
 // PARAMETERS
 
+var array = [1, 10, 3, -2, 8, 4, 3, 4]
+
+function merge ( a, b ) {
+	return a+b;
+}
+
 var H_GAP = 80; // space between the nodes in the last level
 var V_GAP = 64; // vertical spacing between levels
 
@@ -19,7 +25,6 @@ var NODE_TEXT_COLOR = '#ff0000';
 var NODE_INDEX_TEXT_COLOR = 'blue';
 
 var INF = Number.MAX_SAFE_INTEGER;
-var array = [1, 10, 3, -2, 8, 4, 3, 4]
 
 // END OF PARAMETERS
 
@@ -65,10 +70,6 @@ println( "Dimensions of canvas: width=\"" + canvas.width + "\" height=\"" + canv
 //white background
 ctx.fillStyle = BACKGROUND_COLOR;
 ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-function merge ( a, b ) {
-	return a+b;
-}
 
 function findPositions ( i=ROOT, depth=1 )
 {
