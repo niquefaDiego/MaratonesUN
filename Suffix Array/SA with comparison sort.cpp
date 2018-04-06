@@ -14,28 +14,27 @@ bool cmp_ranks ( int i, int j ) {
 }
 
 int main ( ) {
-  scanf ( "%s", T );
-  n = strlen(T);
+	scanf ( "%s", T );
+	n = strlen(T);
 
-  for ( int i = 0; i <= n; ++i ) sa[i] = i;
+	for ( int i = 0; i <= n; ++i ) sa[i] = i;
 
 	sort ( sa, sa+n+1, cmp_first);
 	for ( int i = 0; i < n; ++i )
 		rnk[i+1] = rnk[i] + cmp_first(sa[i], sa[i+1]);
 	for ( int i = 0; i <= n; ++i ) pos[sa[i]] = i;
 
-  for ( k = 1; rnk[n] != n; k *= 2 ) {
+	for ( k = 1; rnk[n] != n; k *= 2 ) {
 		sort ( sa, sa+n+1, cmp_ranks );
 		for ( int i = 0; i < n; ++i )
 			tmp[i+1] = tmp[i] + cmp_ranks(sa[i], sa[i+1]);
 		memcpy ( rnk, tmp, sizeof(int)*(n+1) );
 		for ( int i = 0; i <= n; ++i ) pos[sa[i]] = i;
-  }
+	}
 
 	printf("\nk = %d\n", k);
-	for ( int i = 0; i <= n; ++i ) {
+	for ( int i = 0; i <= n; ++i )
 		printf ( "%3d%3d  %s$\n", rnk[i], sa[i], T+sa[i] );
-	}
 	printf ( "rnk[%d] = %d\n", n, rnk[n] );
 	return 0;
 }
